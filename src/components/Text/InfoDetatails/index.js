@@ -47,6 +47,7 @@ export default function TextDetails() {
           <Text style={styles.Text}>País: {displayInfo(address.country)}</Text>
           <Text style={styles.Text}>Estado: {displayInfo(address.region)}</Text>
           <Text style={styles.Text}>Cidade: {displayInfo(address.city)}</Text>
+          <Text style={styles.Text}>Rua: {displayInfo(address.street)}</Text>
           <Text style={styles.Text}>
             CEP: {displayInfo(address.postalCode)}
           </Text>
