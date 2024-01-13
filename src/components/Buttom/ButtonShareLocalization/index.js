@@ -6,37 +6,29 @@ import styles from "./style";
 
 export default function ShareLocalization() {
   const { location, address, errorMsg } = useLocation();
+
   const shareDetails = () => {
-    let sharedMessage = `Detalhes da Minha Localização:\n`;
+    let sharedMessage = "Detalhes da Minha Localização:\n";
+    let mapLink = "";
+
     if (location) {
-      sharedMessage += `Latitude: ${location.coords.latitude}\n`;
-      sharedMessage += `Longitude: ${location.coords.longitude}\n`;
-      if (location.coords.altitude !== null) {
-        sharedMessage += `Altitude: ${location.coords.altitude} metros\n`;
-      }
-      if (location.coords.accuracy !== null) {
-        sharedMessage += `Precisão: ${location.coords.accuracy} metros\n`;
-      }
-      if (location.coords.altitudeAccuracy !== null) {
-        sharedMessage += `Precisão da Altitude: ${location.coords.altitudeAccuracy} metros\n`;
-      }
-      if (location.coords.heading !== null) {
-        sharedMessage += `Direção: ${location.coords.heading} graus\n`;
-      }
-      if (location.coords.speed !== null) {
-        sharedMessage += `Velocidade: ${location.coords.speed} metros/segundo\n`;
-      }
+      const { latitude, longitude } = location.coords;
+      sharedMessage += `Latitude: ${latitude}\n`;
+      sharedMessage += `Longitude: ${longitude}\n`;
+      mapLink = `https://www.google.com/maps/?q=${latitude},${longitude}`;
+      sharedMessage += `\n\nClique aqui para ver no Mapa onde estou: ${mapLink}\n\n\n`;
       sharedMessage += `Verificado: ${new Date(
         location.timestamp
-      ).toLocaleString()}\n`;
+      ).toLocaleString()}\n\n`;
     }
+
     if (address) {
       sharedMessage += `Continente: ${address.continent || "Não Localizado"}\n`;
       sharedMessage += `País: ${address.country || "Não Localizado"}\n`;
       sharedMessage += `Estado: ${address.region || "Não Localizado"}\n`;
       sharedMessage += `Cidade: ${address.city || "Não Localizado"}\n`;
       sharedMessage += `CEP: ${address.postalCode || "Não Localizado"}\n`;
-      sharedMessage += `RUA: ${address.street || "Não Localizado"}\n`;
+      sharedMessage += `Rua: ${address.street || "Não Localizado"}\n`;
     }
 
     Share.share({ message: sharedMessage });
