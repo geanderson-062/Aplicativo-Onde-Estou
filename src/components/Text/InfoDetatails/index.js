@@ -84,6 +84,16 @@ export default function TextDetails() {
         >
           Cidade: {displayInfo(address.city)}
         </Text>
+        <Text
+          style={{
+            textAlign: "left",
+            fontSize: 20,
+            marginBottom: 10,
+            marginLeft: 10,
+          }}
+        >
+          CEP: {displayInfo(address.postalCode)}
+        </Text>
       </View>
       <Text style={{ marginBottom: 30, textAlign: "center", fontSize: 30 }}>
         Mais Detalhes
