@@ -1,61 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Dimensions } from "react-native";
-import MapView, { Marker } from "react-native-maps";
-import * as Location from "expo-location";
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import HomeScreen from "./src/screens/HomeScreen";
+import DetailsScreen from "./src/screens/DetailsScreen";
 
-export default function App() {
-  const [location, setLocation] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(null);
+const Stack = createNativeStackNavigator();
 
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
-      }
-
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    })();
-  }, []);
-
+function App() {
   return (
-    <View style={styles.container}>
-      {location ? (
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: location.coords.latitude,
-            longitude: location.coords.longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
-        >
-          <Marker
-            coordinate={{
-              latitude: location.coords.latitude,
-              longitude: location.coords.longitude,
-            }}
-            title={"Minha Localização"}
-          />
-        </MapView>
-      ) : (
-        <Text>Buscando localização...</Text>
-      )}
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  map: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
-  },
-});
+export default App;
