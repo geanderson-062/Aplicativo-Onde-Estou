@@ -36,6 +36,7 @@ export default function ShareLocalization() {
       sharedMessage += `Estado: ${address.region || "Não Localizado"}\n`;
       sharedMessage += `Cidade: ${address.city || "Não Localizado"}\n`;
       sharedMessage += `CEP: ${address.postalCode || "Não Localizado"}\n`;
+      sharedMessage += `RUA: ${address.street || "Não Localizado"}\n`;
     }
 
     Share.share({ message: sharedMessage });
