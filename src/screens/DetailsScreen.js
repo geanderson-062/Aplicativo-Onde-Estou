@@ -1,11 +1,26 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { ScrollView } from "react-native";
+import TextDetails from "../components/Text/InfoDetatails";
+import Animation from "../components/Animation";
+import ButtonShareLocalization from "../components/Buttom/ButtonShareLocalization";
 
 function DetailsScreen() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Details Screen</Text>
-    </View>
+    <ScrollView
+      style={{
+        flex: 1,
+        marginLeft: "10%",
+        marginRight: "10%",
+      }}
+      contentContainerStyle={{
+        justifyContent: "center",
+      }}
+      showsVerticalScrollIndicator={false}
+    >
+      <Animation />
+      <TextDetails />
+      <ButtonShareLocalization />
+    </ScrollView>
   );
 }
 

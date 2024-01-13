@@ -27,7 +27,16 @@ export default function Map() {
           />
         </MapView>
       ) : (
-        <Text>Buscando localização...</Text>
+        <Text
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: 40,
+          }}
+        >
+          Buscando localização...
+        </Text>
       )}
     </View>
   );
