@@ -5,6 +5,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import DetailsScreen from "./src/screens/DetailsScreen";
 import { MaterialIcons } from "@expo/vector-icons";
 import { View, Text } from "react-native";
+import HeaderButtonShare from "./src/components/Buttom/HeaderButtonShare";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,7 @@ function App() {
                 iconName="not-listed-location"
               />
             ),
+            headerRight: () => <HeaderButtonShare />,
           }}
         />
         <Stack.Screen
@@ -40,6 +42,7 @@ function App() {
             headerTitle: () => (
               <CustomHeaderTitle title="Estou Aqui !" iconName="location-on" />
             ),
+            headerRight: () => <HeaderButtonShare />,
           }}
         />
       </Stack.Navigator>
