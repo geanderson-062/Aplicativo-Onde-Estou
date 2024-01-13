@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
+import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 
 export default function App() {
@@ -19,16 +20,29 @@ export default function App() {
     })();
   }, []);
 
-  let text = "Waiting..";
-  if (errorMsg) {
-    text = errorMsg;
-  } else if (location) {
-    text = JSON.stringify(location);
-  }
-
   return (
     <View style={styles.container}>
-      <Text style={styles.paragraph}>{text}</Text>
+      {location ? (
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        >
+          <Marker
+            coordinate={{
+              latitude: location.coords.latitude,
+              longitude: location.coords.longitude,
+            }}
+            title={"Minha Localização"}
+          />
+        </MapView>
+      ) : (
+        <Text>Buscando localização...</Text>
+      )}
     </View>
   );
 }
@@ -36,13 +50,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    backgroundColor: "#fff",
     alignItems: "center",
-    padding: 20,
+    justifyContent: "center",
   },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    textAlign: "center",
+  map: {
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
   },
 });
