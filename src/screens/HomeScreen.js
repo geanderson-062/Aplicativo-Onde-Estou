@@ -1,37 +1,18 @@
 import * as React from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View } from "react-native";
 import Map from "../components/Map";
+import CustomButtonDetails from "../components/Buttom/CustomButtonDetails"; // Ajuste o caminho conforme a localização do arquivo
 
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Map />
-      <TouchableOpacity
-        style={styles.button}
+      <CustomButtonDetails
+        title="Ver Detalhes"
         onPress={() => navigation.navigate("Estou Aqui")}
-      >
-        <Text style={styles.buttonText}>Ver Detalhes</Text>
-      </TouchableOpacity>
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  button: {
-    alignItems: "center",
-    backgroundColor: "#fff",
-    borderColor: "#000",
-    borderRadius: 100,
-    borderWidth: 2,
-    borderHeight: 2,
-    padding: 10,
-    marginBottom: "10%",
-    width: "70%",
-  },
-  buttonText: {
-    fontSize: 20,
-    color: "black",
-  },
-});
 
 export default HomeScreen;
