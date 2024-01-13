@@ -32,7 +32,7 @@ export default function Map() {
             flex: 1,
             justifyContent: "center",
             alignItems: "center",
-            fontSize: 50,
+            fontSize: 40,
           }}
         >
           Buscando localização...
