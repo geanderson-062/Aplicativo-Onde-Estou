@@ -14,14 +14,14 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   Text: {
-    fontSize: 20,
+    fontSize: 15,
     marginBottom: 5,
   },
   TitleText: {
     marginTop: 30,
     marginBottom: 30,
     textAlign: "center",
-    fontSize: 30,
+    fontSize: 25,
   },
 });
 
