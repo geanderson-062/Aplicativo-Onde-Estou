@@ -33,13 +33,13 @@ export default function ShareLocalization() {
 
   if (!location || !address) {
     return (
-      <View>
+      <View style={{ alignItems: "center", justifyContent: "center" }}>
         <Text
           style={{
             flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
             fontSize: 20,
+            marginTop: 30,
+            marginBottom: 30,
           }}
         >
           Carregando...

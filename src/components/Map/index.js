@@ -33,6 +33,8 @@ export default function Map() {
             justifyContent: "center",
             alignItems: "center",
             fontSize: 40,
+            marginTop: 30,
+            marginBottom: 30,
           }}
         >
           Buscando localização...
