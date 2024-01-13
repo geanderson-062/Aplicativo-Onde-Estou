@@ -1,6 +1,7 @@
 import * as React from "react";
 import { ScrollView } from "react-native";
 import TextDetails from "../components/Text/InfoDetatails";
+import Animation from "../components/Animation";
 
 function DetailsScreen() {
   return (
@@ -15,6 +16,7 @@ function DetailsScreen() {
       }}
       showsVerticalScrollIndicator={false}
     >
+      <Animation />
       <TextDetails />
     </ScrollView>
   );
