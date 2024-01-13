@@ -1,13 +1,15 @@
 import * as React from "react";
-import { View, Text, Button } from "react-native";
+import { View } from "react-native";
+import Map from "../components/Map";
+import CustomButtonDetails from "../components/Buttom/CustomButtonDetails"; // Ajuste o caminho conforme a localização do arquivo
 
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate("Details")}
+      <Map />
+      <CustomButtonDetails
+        title="Ver Detalhes"
+        onPress={() => navigation.navigate("Estou Aqui")}
       />
     </View>
   );
