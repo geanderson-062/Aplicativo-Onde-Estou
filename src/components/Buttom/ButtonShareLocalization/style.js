@@ -10,10 +10,13 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: "10%",
     width: "70%",
+    flexDirection: "row",
+    justifyContent: "center",
   },
   buttonText: {
     fontSize: 20,
     color: "black",
+    marginLeft: 10,
   },
 });
 
