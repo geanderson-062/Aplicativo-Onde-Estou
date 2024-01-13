@@ -1,6 +1,7 @@
 import * as React from "react";
 import { View, Text } from "react-native";
 import useLocation from "../../../service/useLocation";
+import styles from "./style";
 
 export default function TextDetails() {
   const { location, address, errorMsg } = useLocation();
@@ -36,154 +37,58 @@ export default function TextDetails() {
 
   return (
     <>
-      <Text
-        style={{
-          marginBottom: 30,
-          textAlign: "center",
-          fontSize: 30,
-          marginTop: 30,
-        }}
-      >
-        Pricipais
-      </Text>
-      <View
-        style={{
-          backgroundColor: "#E2E1E7",
-          marginBottom: 30,
-          borderRadius: 10,
-        }}
-      >
-        <Text
-          style={{
-            textAlign: "left",
-            fontSize: 20,
-            marginBottom: 5,
-            marginTop: 10,
-            marginLeft: 10,
-          }}
-        >
-          País: {displayInfo(address.country)}
-        </Text>
-        <Text
-          style={{
-            textAlign: "left",
-            fontSize: 20,
-            marginBottom: 5,
-            marginLeft: 10,
-          }}
-        >
-          Estado: {displayInfo(address.region)}
-        </Text>
-        <Text
-          style={{
-            textAlign: "left",
-            fontSize: 20,
-            marginBottom: 10,
-            marginLeft: 10,
-          }}
-        >
-          Cidade: {displayInfo(address.city)}
-        </Text>
+      <Text style={styles.TitleText}>Pricipais</Text>
+
+      <View style={styles.ViewAreaText}>
+        <View style={styles.ViewText}>
+          <Text style={styles.Text}>
+            Continente: {displayInfo(address.continent)}
+          </Text>
+          <Text style={styles.Text}>País: {displayInfo(address.country)}</Text>
+          <Text style={styles.Text}>Estado: {displayInfo(address.region)}</Text>
+          <Text style={styles.Text}>Cidade: {displayInfo(address.city)}</Text>
+          <Text style={styles.Text}>Rua: {displayInfo(address.street)}</Text>
+          <Text style={styles.Text}>
+            CEP: {displayInfo(address.postalCode)}
+          </Text>
+        </View>
       </View>
-      <Text style={{ marginBottom: 30, textAlign: "center", fontSize: 30 }}>
-        Mais Detalhes
-      </Text>
-      <View
-        style={{
-          backgroundColor: "#E2E1E7",
-          marginBottom: 30,
-          borderRadius: 10,
-        }}
-      >
-        {location.coords.altitude !== null && (
-          <Text
-            style={{
-              textAlign: "left",
-              fontSize: 20,
-              marginBottom: 5,
-              marginTop: 10,
-              marginLeft: 10,
-            }}
-          >
-            Altitude: {location.coords.altitude} metros
+
+      <Text style={styles.TitleText}>Mais Detalhes</Text>
+
+      <View style={styles.ViewAreaText}>
+        <View style={styles.ViewText}>
+          {location.coords.altitude !== null && (
+            <Text style={styles.Text}>
+              Altitude: {location.coords.altitude} metros
+            </Text>
+          )}
+          <Text style={styles.Text}>Latitude: {location.coords.latitude}</Text>
+          <Text style={styles.Text}>
+            Longitude: {location.coords.longitude}
           </Text>
-        )}
-        <Text
-          style={{
-            textAlign: "left",
-            fontSize: 20,
-            marginBottom: 5,
-            marginLeft: 10,
-          }}
-        >
-          Latitude: {location.coords.latitude}
-        </Text>
-        <Text
-          style={{
-            textAlign: "left",
-            fontSize: 20,
-            marginBottom: 5,
-            marginLeft: 10,
-          }}
-        >
-          Longitude: {location.coords.longitude}
-        </Text>
-        <Text
-          style={{
-            textAlign: "left",
-            fontSize: 20,
-            marginBottom: 5,
-            marginLeft: 10,
-          }}
-        >
-          Precisão: {location.coords.accuracy} metros
-        </Text>
-        {location.coords.altitudeAccuracy !== null && (
-          <Text
-            style={{
-              textAlign: "left",
-              fontSize: 20,
-              marginBottom: 5,
-              marginLeft: 10,
-            }}
-          >
-            Precisão da Altitude: {location.coords.altitudeAccuracy} metros
+          <Text style={styles.Text}>
+            Precisão: {location.coords.accuracy} metros
           </Text>
-        )}
-        {location.coords.heading !== null && (
-          <Text
-            style={{
-              textAlign: "left",
-              fontSize: 20,
-              marginBottom: 5,
-              marginLeft: 10,
-            }}
-          >
-            Direção: {location.coords.heading} graus
+          {location.coords.altitudeAccuracy !== null && (
+            <Text style={styles.Text}>
+              Precisão da Altitude: {location.coords.altitudeAccuracy} metros
+            </Text>
+          )}
+          {location.coords.heading !== null && (
+            <Text style={styles.Text}>
+              Direção: {location.coords.heading} graus
+            </Text>
+          )}
+          {location.coords.speed !== null && (
+            <Text style={styles.Text}>
+              Velocidade: {location.coords.speed} metros/segundo
+            </Text>
+          )}
+          <Text style={styles.Text}>
+            Verificado: {new Date(location.timestamp).toLocaleString()}
           </Text>
-        )}
-        {location.coords.speed !== null && (
-          <Text
-            style={{
-              textAlign: "left",
-              fontSize: 20,
-              marginBottom: 5,
-              marginLeft: 10,
-            }}
-          >
-            Velocidade: {location.coords.speed} metros/segundo
-          </Text>
-        )}
-        <Text
-          style={{
-            textAlign: "left",
-            fontSize: 20,
-            marginBottom: 10,
-            marginLeft: 10,
-          }}
-        >
-          Verificado: {new Date(location.timestamp).toLocaleString()}
-        </Text>
+        </View>
       </View>
     </>
   );
