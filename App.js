@@ -10,8 +10,8 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Onde Estou ?" component={HomeScreen} />
+        <Stack.Screen name="Estou Aqui" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
