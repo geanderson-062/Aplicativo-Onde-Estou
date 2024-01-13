@@ -16,11 +16,10 @@ export default function HeaderButtonShare() {
       sharedMessage += `Latitude: ${latitude}\n`;
       sharedMessage += `Longitude: ${longitude}\n`;
       mapLink = `https://www.google.com/maps/?q=${latitude},${longitude}`;
-      sharedMessage += `\nClique aqui para ver no Mapa onde estou: ${mapLink}\n`;
-
+      sharedMessage += `\n\nClique aqui para ver no Mapa onde estou: ${mapLink}\n\n\n`;
       sharedMessage += `Verificado: ${new Date(
         location.timestamp
-      ).toLocaleString()}\n`;
+      ).toLocaleString()}\n\n`;
     }
 
     if (address) {
