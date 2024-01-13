@@ -57,8 +57,17 @@ export default function TextDetails() {
           style={{
             textAlign: "left",
             fontSize: 20,
+            marginBottom: 10,
+            marginLeft: 10,
+          }}
+        >
+          Continente: {displayInfo(address.continent)}
+        </Text>
+        <Text
+          style={{
+            textAlign: "left",
+            fontSize: 20,
             marginBottom: 5,
-            marginTop: 10,
             marginLeft: 10,
           }}
         >
@@ -69,7 +78,6 @@ export default function TextDetails() {
             textAlign: "left",
             fontSize: 20,
             marginBottom: 5,
-            marginLeft: 10,
           }}
         >
           Estado: {displayInfo(address.region)}
