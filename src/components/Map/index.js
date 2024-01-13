@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import useLocation from "../../service/useLocation";
+import Animation from "../Animation/index";
 
 export default function Map() {
   const { location, errorMsg } = useLocation();
@@ -27,16 +28,21 @@ export default function Map() {
           />
         </MapView>
       ) : (
-        <Text
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            fontSize: 40,
-          }}
-        >
-          Buscando localização...
-        </Text>
+        <>
+          <Animation />
+          <Text
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+              fontSize: 40,
+              marginTop: 30,
+              marginBottom: 30,
+            }}
+          >
+            Buscando localização...
+          </Text>
+        </>
       )}
     </View>
   );

@@ -4,7 +4,7 @@ import useLocation from "../../../service/useLocation";
 import { FontAwesome } from "@expo/vector-icons";
 import styles from "./style";
 
-export default function ShareLocalization() {
+export default function HeaderButtonShare() {
   const { location, address, errorMsg } = useLocation();
   const shareDetails = () => {
     let sharedMessage = `Detalhes da Minha Localização:\n`;
@@ -53,7 +53,6 @@ export default function ShareLocalization() {
     <View style={{ alignItems: "center", justifyContent: "center" }}>
       <TouchableOpacity style={styles.button} onPress={shareDetails}>
         <FontAwesome name="share" size={24} color="#E64512" />
-        <Text style={styles.buttonText}>Compartilhar</Text>
       </TouchableOpacity>
     </View>
   );

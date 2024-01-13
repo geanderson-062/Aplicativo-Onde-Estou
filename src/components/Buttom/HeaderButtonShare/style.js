@@ -7,16 +7,7 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     borderRadius: 100,
     borderWidth: 2,
-    padding: 10,
-    marginBottom: "10%",
-    width: "70%",
-    flexDirection: "row",
-    justifyContent: "center",
-  },
-  buttonText: {
-    fontSize: 20,
-    color: "black",
-    marginLeft: 10,
+    padding: 5,
   },
 });
 
