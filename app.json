@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Onde-estou?",
-    "slug": "Onde-estou?",
+    "name": "Onde estou ?",
+    "slug": "onde-estou",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,16 +15,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.geanderson062.ondeestou"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.geanderson062.ondeestou"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "76936a54-b3b2-424e-8375-9fe9b7a612e4"
+      }
     }
   }
 }
